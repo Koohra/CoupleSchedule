@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoupleSchedule.API", "CoupleSchedule.API\CoupleSchedule.API.csproj", "{24F0D2DF-4830-43BB-9448-251A06C072CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoupleSchedule.Domain", "CoupleSchedule.Domain\CoupleSchedule.Domain.csproj", "{A32A9ABF-55BA-403F-8581-E72E48A9BF1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoupleSchedule.Application", "CoupleSchedule.Application\CoupleSchedule.Application.csproj", "{0DE6634B-AFEB-41CC-925E-30D5C0D1BF36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoupleSchedule.Infrastructure", "CoupleSchedule.Infrastructure\CoupleSchedule.Infrastructure.csproj", "{2B031C51-5473-441F-B242-C9C6A7804379}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A4D652C-500E-4901-9D62-BD33A572CA42}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC80B07F-03F4-4726-9939-17B44B4BD74A}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24F0D2DF-4830-43BB-9448-251A06C072CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24F0D2DF-4830-43BB-9448-251A06C072CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24F0D2DF-4830-43BB-9448-251A06C072CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24F0D2DF-4830-43BB-9448-251A06C072CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32A9ABF-55BA-403F-8581-E72E48A9BF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32A9ABF-55BA-403F-8581-E72E48A9BF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32A9ABF-55BA-403F-8581-E72E48A9BF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32A9ABF-55BA-403F-8581-E72E48A9BF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE6634B-AFEB-41CC-925E-30D5C0D1BF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE6634B-AFEB-41CC-925E-30D5C0D1BF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE6634B-AFEB-41CC-925E-30D5C0D1BF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE6634B-AFEB-41CC-925E-30D5C0D1BF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B031C51-5473-441F-B242-C9C6A7804379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B031C51-5473-441F-B242-C9C6A7804379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B031C51-5473-441F-B242-C9C6A7804379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B031C51-5473-441F-B242-C9C6A7804379}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24F0D2DF-4830-43BB-9448-251A06C072CC} = {5A4D652C-500E-4901-9D62-BD33A572CA42}
+		{0DE6634B-AFEB-41CC-925E-30D5C0D1BF36} = {5A4D652C-500E-4901-9D62-BD33A572CA42}
+		{A32A9ABF-55BA-403F-8581-E72E48A9BF1F} = {5A4D652C-500E-4901-9D62-BD33A572CA42}
+		{2B031C51-5473-441F-B242-C9C6A7804379} = {5A4D652C-500E-4901-9D62-BD33A572CA42}
+	EndGlobalSection
+EndGlobal
