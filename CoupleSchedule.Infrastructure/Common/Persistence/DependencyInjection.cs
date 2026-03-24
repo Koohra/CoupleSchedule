@@ -1,6 +1,8 @@
+using CoupleSchedule.Application.Common.Interfaces;
 using CoupleSchedule.Domain.Common.Interfaces;
 using CoupleSchedule.Domain.Identity.Interfaces;
 using CoupleSchedule.Domain.Presence.Interfaces;
+using CoupleSchedule.Infrastructure.Common.Security;
 using CoupleSchedule.Infrastructure.Identity.Persistence.Repositories;
 using CoupleSchedule.Infrastructure.Presence.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +22,7 @@ public static class DependencyInjection
         
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPartnerRepository, PartnerRepository>();
+        services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
         
         return services;
     }
