@@ -12,4 +12,7 @@ public sealed class UserRepository(AppDbContext context) : IUserRepository
 
     public async Task<bool> EmailExistsAsync(string email) =>
         await context.Users.AnyAsync(c => c.Email == email);
+
+    public async Task<User?> GetByEmailAsync(string email) =>
+        await context.Users.FirstOrDefaultAsync(u => u.Email == email);
 }

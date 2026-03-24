@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using CoupleSchedule.Application.Presence.UseCases.Commands.UpdateStatus;
 using FastEndpoints;
 
@@ -9,13 +10,20 @@ public sealed class UpdateStatusEndpoint(IUpdateStatusHandler handler)
     public override void Configure()
     {
         Put("/partners/update-status");
-        AllowAnonymous();
     }
 
     public override async Task HandleAsync(UpdateStatusRequest req, CancellationToken ct)
     {
-        var command = Map.ToEntity(req);
-        await handler.ExecuteAsync(command);
+        var commandTemplate = Map.ToEntity(req);
+
+        var authenticatedId = User.FindFirstValue("id");
+
+        if (string.IsNullOrEmpty(authenticatedId))
+            await Send.UnauthorizedAsync(ct);
+
+        var finalCommand = commandTemplate with { PartnerId = Guid.Parse(authenticatedId!) };
+
+        await handler.ExecuteAsync(finalCommand);
         await Send.OkAsync(Map.ToResponse(true), ct);
     }
 }

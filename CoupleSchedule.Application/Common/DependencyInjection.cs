@@ -1,3 +1,4 @@
+using CoupleSchedule.Application.Identity.UseCases.Commands.Login;
 using CoupleSchedule.Application.Presence.UseCases.Commands.RegisterPartner;
 using CoupleSchedule.Application.Presence.UseCases.Commands.UpdateStatus;
 using CoupleSchedule.Application.Presence.UseCases.Queries.GetPartnerStatus;
@@ -9,10 +10,11 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
+        services.AddScoped<ILoginHandler, LoginHandler>();
         services.AddScoped<IRegisterPartnerHandler, RegisterPartnerHandler>();
         services.AddScoped<IUpdateStatusHandler, UpdateStatusHandler>();
         services.AddScoped<IGetPartnerStatusHandler, GetPartnerStatusHandler>();
-
+        
         return services;
     }
 }

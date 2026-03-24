@@ -6,7 +6,7 @@ namespace CoupleSchedule.API.Endpoints.Presence.UpdateStatus;
 public sealed class UpdateStatusMapper : Mapper<UpdateStatusRequest, UpdateStatusResponse, UpdateStatusCommand>
 {
     public override UpdateStatusCommand ToEntity(UpdateStatusRequest r) => new(
-        PartnerId: r.PartnerId,
+        PartnerId: Guid.Empty,
         Activity: r.Activity,
         Focus: r.Focus
     );

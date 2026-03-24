@@ -7,13 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
     .AddApplication()
-    .AddInfrastructure(builder.Configuration);
+    .AddInfrastructure(builder.Configuration)
+    .AddAuth(builder.Configuration);
 
 builder.Services.AddFastEndpoints();
 builder.Services.SwaggerDocument();
     
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseFastEndpoints();
 app.UseSwaggerGen();
