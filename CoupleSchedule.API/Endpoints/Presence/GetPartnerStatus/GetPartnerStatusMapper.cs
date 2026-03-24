@@ -5,9 +5,8 @@ namespace CoupleSchedule.API.Endpoints.Presence.GetPartnerStatus;
 
 public sealed class GetPartnerStatusMapper : Mapper<GetPartnerStatusRequest, GetPartnerStatusResponse, GetPartnerStatusQuery>
 {
-    public override GetPartnerStatusQuery ToEntity(GetPartnerStatusRequest r) => new(
-        PartnerId: r.PartnerId
-    );
+    public override GetPartnerStatusQuery ToEntity(GetPartnerStatusRequest r) 
+        => new(PartnerId: Guid.Empty);
 
     public GetPartnerStatusResponse FromDto(PartnerStatusDTO d) => new(
         Name: d.Name,

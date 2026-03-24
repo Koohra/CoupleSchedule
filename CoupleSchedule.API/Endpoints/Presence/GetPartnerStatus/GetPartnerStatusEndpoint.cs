@@ -1,25 +1,28 @@
+using System.Security.Claims;
 using CoupleSchedule.Application.Presence.UseCases.Queries.GetPartnerStatus;
 using FastEndpoints;
 
 namespace CoupleSchedule.API.Endpoints.Presence.GetPartnerStatus;
 
-public sealed class GetPartnerStatusEndpoint(IGetPartnerStatusHandler handler) 
+public sealed class GetPartnerStatusEndpoint(IGetPartnerStatusHandler handler)
     : Endpoint<GetPartnerStatusRequest, GetPartnerStatusResponse, GetPartnerStatusMapper>
 {
     public override void Configure()
     {
-        Get("/partners/{PartnerId}/status");
-        AllowAnonymous(); //remover quando implementar o JWT
+        Get("/partners/partner-status");
     }
 
     public override async Task HandleAsync(GetPartnerStatusRequest req, CancellationToken ct)
     {
-        var query = Map.ToEntity(req);
-        
-        var dto = await handler.ExecuteAsync(query, ct);
-        
-        var response = Map.FromDto(dto);
+        var queryTemplate = Map.ToEntity(req);
 
-        await Send.OkAsync(response, ct);
+        var myId = User.FindFirstValue("id");
+
+        if (string.IsNullOrEmpty(myId)) await Send.UnauthorizedAsync(ct);
+
+        var finalQuery = queryTemplate with { PartnerId = Guid.Parse(myId!) };
+
+        var dto = await handler.ExecuteAsync(finalQuery, ct);
+        await Send.OkAsync(Map.FromDto(dto), ct);
     }
 }
