@@ -8,7 +8,7 @@ public sealed class UpdateStatusMapper : Mapper<UpdateStatusRequest, UpdateStatu
     public override UpdateStatusCommand ToEntity(UpdateStatusRequest r) => new(
         PartnerId: Guid.Empty,
         Activity: r.Activity,
-        Focus: r.Focus
+        Focus: r.FocusId
     );
     
     public UpdateStatusResponse ToResponse(bool success) => new(

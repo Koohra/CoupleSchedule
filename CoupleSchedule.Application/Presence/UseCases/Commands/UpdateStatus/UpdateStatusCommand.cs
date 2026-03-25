@@ -5,5 +5,5 @@ namespace CoupleSchedule.Application.Presence.UseCases.Commands.UpdateStatus;
 public record UpdateStatusCommand(
     Guid PartnerId,
     string Activity,
-    FocusLevel Focus
+    int Focus
 );

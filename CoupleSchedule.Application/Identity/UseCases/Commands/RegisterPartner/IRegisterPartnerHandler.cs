@@ -1,4 +1,4 @@
-namespace CoupleSchedule.Application.Presence.UseCases.Commands.RegisterPartner;
+namespace CoupleSchedule.Application.Identity.UseCases.Commands.RegisterPartner;
 
 public interface IRegisterPartnerHandler
 {

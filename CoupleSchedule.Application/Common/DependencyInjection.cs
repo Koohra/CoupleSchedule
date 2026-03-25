@@ -1,6 +1,8 @@
 using CoupleSchedule.Application.Identity.UseCases.Commands.Login;
-using CoupleSchedule.Application.Presence.UseCases.Commands.RegisterPartner;
+using CoupleSchedule.Application.Identity.UseCases.Commands.RegisterPartner;
+using CoupleSchedule.Application.Presence.UseCases.Commands.LinkPartner;
 using CoupleSchedule.Application.Presence.UseCases.Commands.UpdateStatus;
+using CoupleSchedule.Application.Presence.UseCases.Queries.GetMyStatus;
 using CoupleSchedule.Application.Presence.UseCases.Queries.GetPartnerStatus;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +16,8 @@ public static class DependencyInjection
         services.AddScoped<IRegisterPartnerHandler, RegisterPartnerHandler>();
         services.AddScoped<IUpdateStatusHandler, UpdateStatusHandler>();
         services.AddScoped<IGetPartnerStatusHandler, GetPartnerStatusHandler>();
+        services.AddScoped<IGetMyStatusHandler, GetMyStatusHandler>();
+        services.AddScoped<ILinkPartnerHandler, LinkPartnerHandler>();
         
         return services;
     }

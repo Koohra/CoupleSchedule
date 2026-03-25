@@ -1,14 +1,14 @@
-using CoupleSchedule.Application.Presence.UseCases.Commands.RegisterPartner;
+using CoupleSchedule.Application.Identity.UseCases.Commands.RegisterPartner;
 using FastEndpoints;
 
-namespace CoupleSchedule.API.Endpoints.Presence.RegisterPartner;
+namespace CoupleSchedule.API.Endpoints.Auth.RegisterPartner;
 
 public sealed class RegisterPartnerEndpoint(IRegisterPartnerHandler handler) 
     : Endpoint<RegisterPartnerRequest, RegisterPartnerResponse, RegisterPartnerMapper>
 {
     public override void Configure()
     {
-        Post("/partners/register");
+        Post("/auth/register");
         AllowAnonymous();
     }
 

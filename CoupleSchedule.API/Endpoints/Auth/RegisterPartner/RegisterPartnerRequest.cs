@@ -1,4 +1,4 @@
-namespace CoupleSchedule.API.Endpoints.Presence.RegisterPartner;
+namespace CoupleSchedule.API.Endpoints.Auth.RegisterPartner;
 
 public record RegisterPartnerRequest(
     string Name,

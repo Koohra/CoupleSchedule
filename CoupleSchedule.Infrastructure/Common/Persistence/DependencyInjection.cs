@@ -35,7 +35,9 @@ public static class DependencyInjection
     public static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration configuration)
     {
         var jwtSettings = configuration.GetSection("JwtSettings").Get<JwtSettings>();
-
+        services.AddSingleton(jwtSettings!); 
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+        
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {

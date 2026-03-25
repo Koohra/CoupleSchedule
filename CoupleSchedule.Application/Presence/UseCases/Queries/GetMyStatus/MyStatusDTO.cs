@@ -1,6 +1,6 @@
-namespace CoupleSchedule.Application.Presence.UseCases.Queries.GetPartnerStatus;
+namespace CoupleSchedule.Application.Presence.UseCases.Queries.GetMyStatus;
 
-public record PartnerStatusDto(
+public record MyStatusDto(
     string Name,
     string Activity,
     string FocusName,

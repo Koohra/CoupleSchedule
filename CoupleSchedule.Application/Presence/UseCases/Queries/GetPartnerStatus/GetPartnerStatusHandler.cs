@@ -5,7 +5,7 @@ namespace CoupleSchedule.Application.Presence.UseCases.Queries.GetPartnerStatus;
 public sealed class GetPartnerStatusHandler(IPartnerRepository partnerRepo, ICoupleRepository coupleRepo)
     : IGetPartnerStatusHandler
 {
-    public async Task<PartnerStatusDTO> ExecuteAsync(GetPartnerStatusQuery query, CancellationToken ct)
+    public async Task<PartnerStatusDto> ExecuteAsync(GetPartnerStatusQuery query, CancellationToken ct)
     {
         var couple = await coupleRepo.GetByPartnerIdAsync(query.PartnerId, ct);
 
@@ -19,7 +19,7 @@ public sealed class GetPartnerStatusHandler(IPartnerRepository partnerRepo, ICou
         if (partner is null)
             throw new InvalidOperationException("Partner not found");
 
-        return new PartnerStatusDTO(
+        return new PartnerStatusDto(
             Name: partner.Name,
             Activity: partner.CurrentActivity,
             FocusDescription: partner.CurrentFocus.Description,

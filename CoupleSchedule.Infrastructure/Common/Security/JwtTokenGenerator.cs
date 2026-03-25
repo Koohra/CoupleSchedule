@@ -1,11 +1,12 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using CoupleSchedule.Application.Common.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CoupleSchedule.Infrastructure.Common.Security;
 
-public sealed class JwtTokenGenerator(JwtSettings jwtSettings)
+public sealed class JwtTokenGenerator(JwtSettings jwtSettings) : IJwtTokenGenerator
 {
     public string GenerateToken(Guid userId, string email)
     {

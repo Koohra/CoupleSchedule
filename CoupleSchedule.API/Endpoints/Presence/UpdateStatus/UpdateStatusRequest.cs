@@ -4,5 +4,5 @@ namespace CoupleSchedule.API.Endpoints.Presence.UpdateStatus;
 
 public record UpdateStatusRequest(
     string Activity,
-    FocusLevel Focus
+    int FocusId
 );

@@ -45,6 +45,29 @@ namespace CoupleSchedule.Infrastructure.Migrations
                     b.ToTable("users", (string)null);
                 });
 
+            modelBuilder.Entity("CoupleSchedule.Domain.Presence.Entities.Couple", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("PartnerOneId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("PartnerTwoId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PartnerOneId", "PartnerTwoId")
+                        .IsUnique();
+
+                    b.ToTable("couples", (string)null);
+                });
+
             modelBuilder.Entity("CoupleSchedule.Domain.Presence.Entities.Partner", b =>
                 {
                     b.Property<Guid>("Id")

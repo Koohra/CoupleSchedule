@@ -5,7 +5,7 @@ using CoupleSchedule.Domain.Identity.Interfaces;
 using CoupleSchedule.Domain.Presence.Entities;
 using CoupleSchedule.Domain.Presence.Interfaces;
 
-namespace CoupleSchedule.Application.Presence.UseCases.Commands.RegisterPartner;
+namespace CoupleSchedule.Application.Identity.UseCases.Commands.RegisterPartner;
 
 public sealed class RegisterPartnerHandler(
     IUserRepository userRepo, 
