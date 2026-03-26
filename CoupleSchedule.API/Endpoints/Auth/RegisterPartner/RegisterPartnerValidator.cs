@@ -23,12 +23,6 @@ public sealed class RegisterPartnerValidator : Validator<RegisterPartnerRequest>
             .NotEmpty()
             .WithMessage("Senha é obrigatória.")
             .MinimumLength(6)
-            .WithMessage("Senha deve ter pelo menos 8 caracteres.")
-            .Matches("[A-Z]")
-            .WithMessage("A senha deve conter pelo menos uma letra maiuscula.")
-            .Matches("[a-z]")
-            .WithMessage("A senha deve conter pelo menos uma letra minuscula.")
-            .Matches("[0-9]")
-            .WithMessage("A senha deve conter pelo menos um numero.");
+            .WithMessage("Senha deve ter pelo menos 6 caracteres.");
     }
 }
