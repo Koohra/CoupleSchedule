@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { motion } from 'framer-motion'
 
 export function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
         try {
             await login(email, password);
             navigate('/dashboard');
         } catch (err) {
-            alert("Credenciais inválidas! Verifique se o Backend está rodando.");
+            setError("E-mail ou senha incorretos.");
         }
     };
 
@@ -24,12 +27,22 @@ export function Login() {
                 
                 <div className="text-center">
                     <h1 className="text-4xl font-black bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                        CoupleSchedule
+                        Couple Schedule
                     </h1>
                     <p className="mt-3 text-slate-500 font-medium text-sm">
                         Sincronize sua rotina com quem você ama.
                     </p>
                 </div>
+
+                {error && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: -10 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        className="bg-red-50 text-red-500 p-4 rounded-2xl text-sm font-bold text-center border border-red-100"
+                    >
+                        {error}
+                    </motion.div>
+                )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-4">
@@ -66,7 +79,7 @@ export function Login() {
                         type="submit"
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-200 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group"
                     >
-                        <span>Entrar no App</span>
+                        <span>Entrar</span>
                         <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
