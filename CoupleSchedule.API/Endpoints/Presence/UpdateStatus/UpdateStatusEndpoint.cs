@@ -21,7 +21,7 @@ public sealed class UpdateStatusEndpoint(IUpdateStatusHandler handler)
         if (string.IsNullOrEmpty(authenticatedId))
             await Send.UnauthorizedAsync(ct);
 
-        var finalCommand = commandTemplate with { PartnerId = Guid.Parse(authenticatedId!) };
+        var finalCommand = commandTemplate with { MyId = Guid.Parse(authenticatedId!) };
 
         await handler.ExecuteAsync(finalCommand);
         await Send.OkAsync(Map.ToResponse(true), ct);
