@@ -1,4 +1,5 @@
 using CoupleSchedule.Application.Common;
+using CoupleSchedule.Infrastructure.Common;
 using CoupleSchedule.Infrastructure.Common.Persistence;
 using FastEndpoints;
 using FastEndpoints.Swagger;
@@ -9,9 +10,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("WebApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "http://localhost:4200")
+        policy.WithOrigins("http://localhost:5173")
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -20,6 +22,7 @@ builder.Services
     .AddInfrastructure(builder.Configuration)
     .AddAuth(builder.Configuration);
 
+builder.Services.AddSignalR();
 builder.Services.AddFastEndpoints();
 builder.Services.SwaggerDocument();
     
@@ -33,6 +36,7 @@ app.UseAuthorization();
 
 app.UseFastEndpoints();
 app.UseSwaggerGen();
+app.MapHub<CoupleSchedule.Infrastructure.Presence.SignalR.PresenceHub>("/hubs/presence");
 
 if (app.Environment.IsDevelopment())
 {
