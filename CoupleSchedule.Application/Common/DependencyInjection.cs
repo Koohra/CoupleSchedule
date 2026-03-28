@@ -1,3 +1,4 @@
+using CoupleSchedule.Application.Academic.UseCases.CreateStudyTrack;
 using CoupleSchedule.Application.Identity.UseCases.Commands.Login;
 using CoupleSchedule.Application.Identity.UseCases.Commands.RegisterPartner;
 using CoupleSchedule.Application.Presence.UseCases.Commands.LinkPartner;
@@ -14,10 +15,13 @@ public static class DependencyInjection
     {
         services.AddScoped<ILoginHandler, LoginHandler>();
         services.AddScoped<IRegisterPartnerHandler, RegisterPartnerHandler>();
+        
         services.AddScoped<IUpdateStatusHandler, UpdateStatusHandler>();
         services.AddScoped<IGetPartnerStatusHandler, GetPartnerStatusHandler>();
         services.AddScoped<IGetMyStatusHandler, GetMyStatusHandler>();
         services.AddScoped<ILinkPartnerHandler, LinkPartnerHandler>();
+
+        services.AddScoped<ICreateStudyTrackHandler, CreateStudyTrackHandler>();
         
         return services;
     }

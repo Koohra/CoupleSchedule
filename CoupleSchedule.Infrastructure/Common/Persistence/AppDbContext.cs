@@ -1,4 +1,5 @@
-﻿using CoupleSchedule.Domain.Identity.Entities;
+﻿using CoupleSchedule.Domain.Academic.Entities;
+using CoupleSchedule.Domain.Identity.Entities;
 using CoupleSchedule.Domain.Presence.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Couple> Couples { get; set; } = null!;
     public DbSet<Partner> Partners { get; set; } = null!;
     public DbSet<User> Users { get; set; } = null!;
+    public DbSet<StudyTrack> StudyTracks { get; set; } = null!;
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,8 +1,10 @@
 using System.Text;
 using CoupleSchedule.Application.Common.Interfaces;
+using CoupleSchedule.Domain.Academic.Interfaces;
 using CoupleSchedule.Domain.Common.Interfaces;
 using CoupleSchedule.Domain.Identity.Interfaces;
 using CoupleSchedule.Domain.Presence.Interfaces;
+using CoupleSchedule.Infrastructure.Academic.Persistence.Repositories;
 using CoupleSchedule.Infrastructure.Common.Persistence;
 using CoupleSchedule.Infrastructure.Common.Security;
 using CoupleSchedule.Infrastructure.Identity.Persistence.Repositories;
@@ -29,6 +31,8 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPartnerRepository, PartnerRepository>();
         services.AddScoped<ICoupleRepository, CoupleRepository>();
+        
+        services.AddScoped<IStudyTrackRepository, StudyTrackRepository>();
         
         services.AddScoped<IPasswordHasher, BCryptPasswordHasher>();
         services.AddSingleton<IUserIdProvider, CustomUserIdProvider>();
