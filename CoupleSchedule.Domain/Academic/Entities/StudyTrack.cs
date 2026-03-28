@@ -31,7 +31,12 @@ public sealed class StudyTrack
         new StudyTrack(partnerId, title, description, targetDate);
 
 
-    public void AddSubject(string name) => _subjects.Add(new Subject(name));
+    public Guid AddSubject(string name)
+    {
+        var subject = new Subject(name);
+        _subjects.Add(subject);
+        return subject.Id;
+    }
 
     public double GetTotalProgress()
     {
