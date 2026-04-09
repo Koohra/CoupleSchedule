@@ -1,3 +1,4 @@
+using CoupleSchedule.Application.Academic.UseCases.AddSubject;
 using CoupleSchedule.Application.Academic.UseCases.CreateStudyTrack;
 using CoupleSchedule.Application.Identity.UseCases.Commands.Login;
 using CoupleSchedule.Application.Identity.UseCases.Commands.RegisterPartner;
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddScoped<ILinkPartnerHandler, LinkPartnerHandler>();
 
         services.AddScoped<ICreateStudyTrackHandler, CreateStudyTrackHandler>();
+        services.AddScoped<IAddSubjectHandler, AddSubjectHandler>();
         
         return services;
     }
